@@ -4,6 +4,7 @@
     <?= $post['body']; ?>
 </div>
 <hr>
-<?= form_open('posts/delete/'.$post['id']); ?>
+<a class="btn btn-primary" href="<?= base_url('posts/edit/'.$post['slug']); ?>">Edit</a>
+<?= form_open('posts/delete/'.$post['id'], 'id="form-delete"'); ?>
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>

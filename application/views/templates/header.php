@@ -7,6 +7,7 @@
     <title>ciBlog</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
+    <script src="//cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,8 +25,13 @@
                     <li class="nav-item <?= $this->uri->segment(1) == 'about' ? 'active' : ''; ?>">
                         <a class="nav-link" href="<?= base_url('about'); ?>">About</a>
                     </li>
-                    <li class="nav-item <?= $this->uri->segment(1) == 'posts' ? 'active' : ''; ?>">
-                        <a class="nav-link" href="<?= base_url('posts'); ?>">Posts</a>
+                    <li class="nav-item <?= $this->uri->segment(1) == 'posts' && empty($this->uri->segment(2)) ? 'active' : ''; ?>">
+                        <a class="nav-link" href="<?= base_url('posts'); ?>">Blog</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item <?= $this->uri->segment(1) == 'posts' && $this->uri->segment(2) == 'create' ? 'active' : ''; ?>">
+                        <a class="nav-link" href="<?= base_url('posts/create'); ?>">Create Post</a>
                     </li>
                 </ul>
                 <!-- <form class="form-inline my-2 my-lg-0">
